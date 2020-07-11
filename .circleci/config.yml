@@ -46,7 +46,7 @@ jobs:
           KEYCLOAK_USER: keycloak
           KEYCLOAK_PASSWORD: password
 
-    working_directory: /go/src/github.com/mrparkers/terraform-provider-keycloak
+    working_directory: /go/src/github.com/hcl31415/terraform-provider-keycloak
     steps:
       - checkout
       - restore_cache:
@@ -82,7 +82,7 @@ jobs:
   build-and-release:
     docker:
       - <<: *go_image
-    working_directory: /go/src/github.com/mrparkers/terraform-provider-keycloak
+    working_directory: /go/src/github.com/hcl31415/terraform-provider-keycloak
     steps:
       - checkout
       - add_ssh_keys:
@@ -93,4 +93,3 @@ jobs:
           command: |
             ./scripts/build-release.sh
             ./scripts/publish-release.sh
-
